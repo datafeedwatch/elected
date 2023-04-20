@@ -20,6 +20,10 @@ module Elected
     @electorado ||= ::Redlock::Client.new redis_urls
   end
 
+  def clear
+    @electorado = nil
+  end
+
   attr_writer :key, :timeout
 
   def key
